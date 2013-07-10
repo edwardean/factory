@@ -44,8 +44,11 @@ Methods: + (ZHObject *)Factory:(id<ZHObject>)object;
 `ZHModel`
 
 ```
-Des: Not use yet...
-
+Des: 实现数据绑定
+SubClassing: NSObject
+Property: ZHObject *object; 基本数据单元
+		  NSArray *objects; 数据集合
+Methods: - (void)bindModelToController:(id<ZHModel>)model;
 ```
 
 `ZHViewController`
