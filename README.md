@@ -26,7 +26,7 @@ Property:	NSString* name;
 ```
 Des: 单元数据(消息)
 SubClassing: ZHObject
-Property: messageContent
+Property: NSString *messageContent
 ```
 
 `ZHFactory`
