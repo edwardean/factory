@@ -11,6 +11,7 @@ SubClassing: NSObject
 Property: ZHPeople *people
 		  ZHMessage *message;
 Methods:  -(void)bindWithObject:(id<ZHObject>)object;
+*IMPORTANT*: 该方法必须由子类重写实现，完成子类数据处理
 ```
 
 `ZHPeople:`
