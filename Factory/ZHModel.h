@@ -9,11 +9,23 @@
 #import <Foundation/Foundation.h>
 #import "ZHObject.h"
 
-@interface ZHModel : NSObject
+@protocol ZHModel <NSObject>
 
+@end
+
+@interface ZHModel : NSObject <ZHModel>
+
+/*
+ 数据单元
+ */
 @property (nonatomic) ZHObject *object;
+
+/*
+ 	数据单元集合
+ */
 @property (nonatomic) NSArray *objects;
 
-- (void)bindDataToController:(id<ZHObject>)object;
+//+ (void)bindObjectsToController:(NSArray *)objects;
+- (void)bindModelToController:(id<ZHModel>)model;
 
 @end

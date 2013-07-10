@@ -39,8 +39,10 @@
   ZHMessage *message = [[ZHMessage alloc] init];
   message.messageContent = @"The isa instance variable of the new instance is initialized to a data structure that describes the class; memory for all other instance variables is set to 0.";
   
-  ZHObject *object = [ZHFactory Factory:message];
-  [object bindWithObject:object];
+  NSArray *objects = @[people,message];
+  ZHModel *model = [[ZHModel alloc] init];
+  model.objects = objects;
+  [model bindModelToController:model];
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,12 +7,39 @@
 //
 
 #import "ZHModel.h"
+#import "ZHFactory.h"
+
+@interface ZHModel ()
+
+- (void)bindDataUnit:(id<ZHObject>)dataUnit;
+
+@end
 
 @implementation ZHModel
 
-- (void)bindDataToController:(id<ZHObject>)object
+@synthesize objects = objects_;
+@synthesize object = object_;
+
+- (void)bindModelToController:(id<ZHModel>)model
 {
-	[NSException raise:NSInternalInconsistencyException format:@"子类%@中必须实现%@方法",[NSString stringWithUTF8String:object_getClassName(self)],NSStringFromSelector(_cmd)];
+  ZHModel *localModel = (ZHModel *)model;
+
+	if (localModel.objects) {
+    for (NSInteger i = 0; i < [localModel.objects count]; i++) {
+      ZHObject *localObject = (ZHObject *)[localModel.objects objectAtIndex:i];
+      [self bindDataUnit:localObject];
+    }
+  }
+  if (localModel.object) {
+    ZHObject *localObject = (ZHObject *)localModel.object;
+    [self bindDataUnit:localObject];
+  }
+}
+
+- (void)bindDataUnit:(id<ZHObject>)dataUnit
+{
+	ZHObject *data = [ZHFactory Factory:dataUnit];
+  [data bindWithObject:data];
 }
 
 @end
