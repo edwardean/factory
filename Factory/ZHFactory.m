@@ -14,7 +14,8 @@
 @synthesize people = people_;
 @synthesize message = message_;
 
-- (ZHObject *)factory:(id<ZHObject>)object
+
++ (ZHObject *)Factory:(id<ZHObject>)object
 {
 	if ([object isKindOfClass:[ZHPeople class]]) {
     return (ZHPeople *)object;
@@ -22,7 +23,7 @@
   	return (ZHMessage *)object;
   } else {
   	return nil;
-  }  
-}
+  }
+} 
 
 @end

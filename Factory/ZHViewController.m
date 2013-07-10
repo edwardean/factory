@@ -39,8 +39,7 @@
   ZHMessage *message = [[ZHMessage alloc] init];
   message.messageContent = @"The isa instance variable of the new instance is initialized to a data structure that describes the class; memory for all other instance variables is set to 0.";
   
-  ZHFactory *factory = [[ZHFactory alloc] init];
-  ZHObject *object = [factory factory:message];
+  ZHObject *object = [ZHFactory Factory:message];
   [object bindWithObject:object];
 }
 

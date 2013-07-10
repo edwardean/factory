@@ -17,6 +17,6 @@
 @property (nonatomic) ZHPeople *people;
 @property (nonatomic) ZHMessage *message;
 
-- (ZHObject *)factory:(id<ZHObject>)object;
++ (ZHObject *)Factory:(id<ZHObject>)object;
 
 @end
