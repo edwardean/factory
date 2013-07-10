@@ -9,7 +9,6 @@
 #import "ZHViewController.h"
 #import "ZHFactory.h"
 #import "ZHModel.h"
-#import "ZHObject.h"
 #import "ZHPeople.h"
 #import "ZHMessage.h"
 
@@ -42,7 +41,7 @@
   NSArray *objects = @[people,message];
   ZHModel *model = [[ZHModel alloc] init];
   model.objects = objects;
-  [model bindModelToController:model];
+  [model bindModel:model];
 }
 
 - (void)didReceiveMemoryWarning

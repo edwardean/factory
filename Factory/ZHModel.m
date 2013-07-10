@@ -20,7 +20,7 @@
 @synthesize objects = objects_;
 @synthesize object = object_;
 
-- (void)bindModelToController:(id<ZHModel>)model
+- (void)bindModel:(id<ZHModel>)model
 {
   ZHModel *localModel = (ZHModel *)model;
 

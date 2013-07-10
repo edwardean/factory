@@ -26,6 +26,6 @@
 @property (nonatomic) NSArray *objects;
 
 //+ (void)bindObjectsToController:(NSArray *)objects;
-- (void)bindModelToController:(id<ZHModel>)model;
+- (void)bindModel:(id<ZHModel>)model;
 
 @end
