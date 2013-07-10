@@ -59,6 +59,6 @@ Des: 测试
   		initialized to a data structure that describes the class; memory for all 
   		other instance variables is set to 0.";
   
-  ZHObject *object = [ZHFactory Factory:message];
+  ZHObject *object = [ZHFactory Factory:message]; Or [ZHFactory Factory:people];
   [object bindWithObject:object];
 ```
