@@ -135,6 +135,7 @@
 				CA2FEB79178D0E47004037DF /* ZHViewController.h */,
 				CA2FEB7A178D0E47004037DF /* ZHViewController.m */,
 				CA2FEB7C178D0F06004037DF /* Factory */,
+				CA6824CF178D32CF006B2F79 /* Canves */,
 				CA2FEB4B178D0E33004037DF /* Supporting Files */,
 			);
 			path = Factory;
@@ -188,6 +189,13 @@
 				CA2FEB8A178D1297004037DF /* ZHFactory.m */,
 			);
 			name = Factory;
+			sourceTree = "<group>";
+		};
+		CA6824CF178D32CF006B2F79 /* Canves */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Canves;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,6 +492,7 @@
 				CA2FEB75178D0E34004037DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA2FEB76178D0E34004037DF /* Build configuration list for PBXNativeTarget "FactoryTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +501,7 @@
 				CA2FEB78178D0E34004037DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

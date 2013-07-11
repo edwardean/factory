@@ -8,6 +8,8 @@
 
 #import "ZHModel.h"
 #import "ZHFactory.h"
+#import "ZHPeopleFactory.h"
+#import "ZHMessageFactory.h"
 
 @interface ZHModel ()
 
