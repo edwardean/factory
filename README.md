@@ -1,40 +1,71 @@
-* tableViewStyle:Grouped
+7/10
+===
+>  Factory Method
 
+> 运行时动态决定子类的对象
 
--------
-* cell:6部分
+`ZHObject:`
 
-分类名称 | 标签切图 | 描述（可选）|
---------|--------| -------- 
-用户名称 |	avatar	  |	回答统计	 |
+```
+Des: 单元数据集合
+SubClassing: NSObject
+Property: ZHPeople *people
+		  ZHMessage *message;
+Methods:  -(void)bindWithObject:(id<ZHObject>)object;
+*IMPORTANT*: 该方法必须由子类重写实现，完成子类数据处理
+```
 
------
-* 回答页面（分为上下两大块）
+`ZHPeople:`
 
-* 上面部分类似前一个界面
-	
-分类名称 | 标签切图 | 描述  
---------|--------|------
-用户名称	| avatar  |  关注按钮
-关注标签 |评论按钮  |  评论标签
-关注收藏夹按钮|
+```
+Des: 单元数据(人)
+SubClassing: ZHObject
+Property:	NSString* name;
+```
 
-* 下面部分分为5部分，每一个section分为两个cell
+`ZHMessage:`
 
-问题    |详情按钮|avatar
--------|-------|-----
-粉丝标签|问题描述
+```
+Des: 单元数据(消息)
+SubClassing: ZHObject
+Property: NSString *messageContent
+```
 
-------------------
-* 收藏夹页面点击avatar进入用户资料页面，分组的tableview，主要有headerview和cell两块
-* headerview
+`ZHFactory`
 
-avatar|用户名和职业描述|他的话题
-------|--------------|------
-他关注的人|关注他的人|已赞按钮|
-已赞标签|粉丝按钮|粉丝标签|
-私信按钮|关注按钮
+```
+Des: Factory method, create ZHPeople or ZHMessage instance
+SubClassing: NSObject
+Property: ZHPeople *people;
+		  ZHMessage *message;
+Methods: + (ZHObject *)Factory:(id<ZHObject>)object;
+```
 
+`ZHModel`
 
+```
+Des: 实现数据绑定
+SubClassing: NSObject
+Property: ZHObject *object; 基本数据单元
+		  NSArray *objects; 数据集合
+Methods: - (void)bindModel:(id<ZHModel>)model;
+```
 
-		
+`ZHViewController`
+
+```
+Des: 测试
+
+  ZHPeople *people = [[ZHPeople alloc] init];
+  people.name = @"Edward";
+  
+  ZHMessage *message = [[ZHMessage alloc] init];
+  message.messageContent = @"The isa instance variable of the new instance is 
+  	initialized to a data structure that describes the class; memory for all other 
+  	instance variables is set to 0.";
+  
+  NSArray *objects = @[people,message];
+  ZHModel *model = [[ZHModel alloc] init];
+  model.objects = objects;
+  [model bindModel:model];
+```
